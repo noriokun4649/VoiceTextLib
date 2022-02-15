@@ -14,10 +14,10 @@ interface VoiceTextApiParams {
 }
 
 export default class VoiceTextApi {
-    readonly hostname = 'api.voicetext.jp';
-    readonly endpoint = 'v1/tts';
-    readonly apitoken: string;
-    readonly schema = Joi.object().keys({
+    private readonly _hostname = 'api.voicetext.jp';
+    private readonly _endpoint = 'v1/tts';
+    private readonly _apitoken: string;
+    private readonly _schema = Joi.object().keys({
         text: Joi.string().min(1).max(200).required(),
         speaker: Joi.string().valid('hikari', 'haruka', 'takeru', 'santa', 'bear', 'show').default('hikari'),
         format: Joi.string().valid('wav', 'ogg', 'aac').default('ogg'),
@@ -30,26 +30,26 @@ export default class VoiceTextApi {
         .with('emotion_level', 'emotion');
 
     constructor(token: string) {
-        this.apitoken = token;
+        this._apitoken = token;
     }
 
-    validate(param: VoiceTextApiParams) {
-        return Joi.attempt(param, this.schema);
+    private validate(param: VoiceTextApiParams) {
+        return Joi.attempt(param, this._schema);
     }
 
-    getQueryText(param: VoiceTextApiParams) {
+    private getQueryText(param: VoiceTextApiParams) {
         return stringify(this.validate(param))
     }
 
-    getRequestUri(param: VoiceTextApiParams) {
-        return `https://${this.hostname}/${this.endpoint}?${this.getQueryText(param)}`
+    private getRequestUri(param: VoiceTextApiParams) {
+        return `https://${this._hostname}/${this._endpoint}?${this.getQueryText(param)}`
     }
 
-    fetch(param: VoiceTextApiParams) {
+    private fetch(param: VoiceTextApiParams) {
         return fetch(this.getRequestUri(param), {
             method: 'post',
             headers: {
-                Authorization: "Basic " + Buffer.from(`${this.apitoken}:`).toString("base64"),
+                Authorization: "Basic " + Buffer.from(`${this._apitoken}:`).toString("base64"),
             }
         });
     }
