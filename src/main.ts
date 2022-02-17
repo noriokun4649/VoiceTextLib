@@ -4,13 +4,13 @@ import fetch from 'node-fetch';
 
 interface VoiceTextApiParams {
     text: string;
-    speaker: string;
-    format: string;
-    emotion: string;
-    emotion_level: number;
-    pitch: number;
-    speed: number;
-    volume: number;
+    speaker?: string;
+    format?: string;
+    emotion?: string;
+    emotion_level?: number;
+    pitch?: number;
+    speed?: number;
+    volume?: number;
 }
 
 export default class VoiceTextApi {
