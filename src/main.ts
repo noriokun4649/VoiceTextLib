@@ -20,7 +20,7 @@ export default class VoiceTextApi {
     private readonly _schema = Joi.object().keys({
         text: Joi.string().min(1).max(200).required(),
         speaker: Joi.string().valid('hikari', 'haruka', 'takeru', 'santa', 'bear', 'show').default('hikari'),
-        format: Joi.string().valid('wav', 'ogg', 'aac').default('ogg'),
+        format: Joi.string().valid('wav', 'ogg', 'mp3').default('wav'),
         emotion: Joi.string().valid('happiness', 'anger', 'sadness').optional(),
         emotion_level: Joi.number().min(1).max(4).when('emotion', { is: true, then: Joi.number().default(2) }).optional(),
         pitch: Joi.number().min(50).max(200).default(100).optional(),
