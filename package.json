@@ -1,6 +1,6 @@
 {
   "name": "voicetextlib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "VoiceText Web API library from TypeScript.",
   "main": "dist/main.js",
   "repository": "https://github.com/noriokun4649/VoiceTextAPI.git",
