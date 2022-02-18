@@ -1,14 +1,18 @@
 {
     "env": {
+        "browser": true,
         "es2021": true,
         "node": true
     },
     "extends": "eslint:recommended",
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaVersion": 2019,
+        "ecmaVersion": 13,
         "sourceType": "module"
     },
-    "plugins": ["node"],
+    "plugins": [
+        "@typescript-eslint"
+    ],
     "rules": {
         "arrow-body-style": "error",
         "arrow-parens": "error",

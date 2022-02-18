@@ -7,13 +7,13 @@
   "author": "noriokun4649 <noriokun.official.mail@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint src/*.ts",
+    "pretest": "eslint src/*.ts",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "clean": "rimraf dist/*",
-    "build": "npm-run-all clean tsc",
     "tsc": "tsc",
+    "build": "npm-run-all clean tsc",
     "dev": "ts-node src/main.ts",
-    "dev:watch": "ts-node-dev --respawn src/main.ts",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
+    "dev:watch": "ts-node-dev --respawn src/main.ts"
   },
   "engines": {
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
@@ -22,6 +22,8 @@
     "@types/jest": "^27.4.0",
     "@types/node": "^17.0.16",
     "@types/querystringify": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.8.0",
     "eslint-plugin-node": "^11.1.0",
