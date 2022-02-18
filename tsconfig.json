@@ -4,6 +4,8 @@
     "module": "ESNext",
     "outDir": "dist",
     "strict": true,
+    "declaration": true,
+    "newLine": "lf",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
