@@ -1,0 +1,11 @@
+coverage
+*.lcov
+
+node_modules/
+src/
+test/
+
+.eslintrc.json
+.gitignore
+jest.config.ts
+tsconfig.json
