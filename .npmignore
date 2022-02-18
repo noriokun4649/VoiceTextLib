@@ -5,6 +5,7 @@ node_modules/
 src/
 test/
 
+.github/
 .eslintrc.json
 .gitignore
 jest.config.ts
