@@ -14,7 +14,7 @@ import VoiceTextApi from 'voicetextlib';
 import fs from 'node:fs';
 
 const voice = new VoiceTextApi('API TOKEN');
-voice.stream({text:'読み上げたイオン性です',format:'wav',speaker:'haruka',speed:50})
+voice.stream({text:'読み上げたい音声です',format:'wav',speaker:'haruka',speed:50})
 .then((body) => body.pipe(fs.createWriteStream('test.wav')));
 ```
 ### ```fetchBuffer(param = {})``` -> ```Promise<Uint8Array>```
@@ -23,7 +23,7 @@ import VoiceTextApi from 'voicetextlib';
 import fs from 'node:fs';
 
 const voice = new VoiceTextApi('API TOKEN');
-voice.fetchBuffer({text:'読み上げたイオン性です',format:'wav',speaker:'haruka',speed:50})
+voice.fetchBuffer({text:'読み上げたい音声です',format:'wav',speaker:'haruka',speed:50})
 .then((body) => fs.writeFileSync('tes3t.wav',body));
 ```
 
