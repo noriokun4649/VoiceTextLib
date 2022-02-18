@@ -38,18 +38,18 @@ export default class VoiceTextApi {
     }
 
     private getQueryText(param: VoiceTextApiParams) {
-        return stringify(this.validate(param))
+        return stringify(this.validate(param));
     }
 
     private getRequestUri(param: VoiceTextApiParams) {
-        return `https://${this._hostname}/${this._endpoint}?${this.getQueryText(param)}`
+        return `https://${this._hostname}/${this._endpoint}?${this.getQueryText(param)}`;
     }
 
     private fetch(param: VoiceTextApiParams) {
         return fetch(this.getRequestUri(param), {
             method: 'post',
             headers: {
-                Authorization: "Basic " + Buffer.from(`${this._apitoken}:`).toString("base64"),
+                Authorization: `Basic ${Buffer.from(`${this._apitoken}:`).toString('base64')}`,
             }
         });
     }
